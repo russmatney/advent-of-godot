@@ -1,0 +1,16 @@
+{:paths ["src"]
+ :tasks
+ {:requires ([clojure.string :as string]
+             [tasks :as tasks])
+
+  tests
+  (->>
+    (string/join " " *command-line-args*)
+    (str "godot --no-window --debug-collisions --path $PWD -d -s addons/gut/gut_cmdln.gd")
+    shell)
+
+  download-input
+  (let [args *command-line-args*]
+    (if (count args)
+      (apply tasks/create-input args)
+      (println "Missing download args")))}}

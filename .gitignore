@@ -1,1 +1,4 @@
 .import/
+.lsp/
+.clj-kondo/.cache
+.session
