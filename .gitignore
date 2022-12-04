@@ -2,3 +2,4 @@
 .lsp/
 .clj-kondo/.cache
 .session
+.DS_Store
