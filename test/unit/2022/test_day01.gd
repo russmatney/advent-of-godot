@@ -10,7 +10,11 @@ func before_each():
 
 func test_elf_inventories_f_handling():
 	var res = c.elf_inventories("example.txt")
-	assert_eq(res, "res://src/2022/01/example.txt")
-
-	res = c.elf_inventories("example.txt")
-	assert_eq(res, "res://src/2022/01/example.txt")
+	assert_eq_deep(res,
+		[
+			[1000, 2000, 3000],
+			[4000],
+			[5000, 6000],
+			[7000, 8000, 9000],
+			[10000],
+		])

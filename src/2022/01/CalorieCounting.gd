@@ -21,12 +21,22 @@ func file_content(fname):
 
 func elf_inventories(fname = "input.txt"):
 	var content = file_content(fname)
-	print(content)
-	return content
+
+	content = content.split("\n\n", false)
+
+	var tories = []
+	for x in content:
+		var cals = []
+		for y in x.split("\n", false):
+			cals.append(int(y))
+		tories.append(cals)
+
+	return tories
 
 func _ready():
 	if Engine.editor_hint:
 		request_ready()
 
 	# elf_inventories("input.txt")
-	elf_inventories("example.txt")
+	var inv = elf_inventories("example.txt")
+	print(inv)
