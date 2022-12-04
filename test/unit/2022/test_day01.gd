@@ -25,3 +25,11 @@ func test_largest_inventory_example():
 func test_largest_inventory_input():
 	var largest = c.largest_inventory(c.elf_inventories("input.txt"))
 	assert_eq(69501, largest)
+
+func test_largest_3_inventory_example():
+	var largest = c.largest_inventory(c.elf_inventories("example.txt"), 3)
+	assert_eq(45000, largest)
+
+func test_largest_3_inventory_input():
+	var largest = c.largest_inventory(c.elf_inventories("input.txt"), 3)
+	assert_eq(202346, largest)
