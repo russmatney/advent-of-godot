@@ -1,10 +1,16 @@
 extends GutTest
 
+var calorie_counting = load("res://src/2022/01/CalorieCounting.tscn")
+
+var c
+
 func before_each():
-	gut.p("ran setup", 2)
+	c = autofree(calorie_counting.instance())
+	add_child(c)
 
-func after_each():
-	gut.p("ran teardown", 2)
+func test_elf_inventories_f_handling():
+	var res = c.elf_inventories("example.txt")
+	assert_eq(res, "res://src/2022/01/example.txt")
 
-func test_assert_eq_number():
-	assert_eq(1, 1, "Should succeed.")
+	res = c.elf_inventories("example.txt")
+	assert_eq(res, "res://src/2022/01/example.txt")
