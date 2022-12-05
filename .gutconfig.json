@@ -1,9 +1,6 @@
 {
   "background_color": "ff262626",
-  "dirs": [
-    "res://test/unit/",
-    "res://test/unit/2022"
-  ],
+  "dirs": ["res://test/"],
   "disable_colors": false,
   "double_strategy": "partial",
   "font_color": "ffcccccc",
@@ -11,7 +8,7 @@
   "font_size": 16,
   "hide_orphans": false,
   "ignore_pause": false,
-  "include_subdirs": false,
+  "include_subdirs": true,
   "inner_class": "",
   "junit_xml_file": "",
   "junit_xml_timestamp": false,
@@ -21,14 +18,12 @@
   "pre_run_script": "",
   "prefix": "test_",
   "selected": "",
-  "should_exit": false,
-  "should_exit_on_success": false,
+  "should_exit": true,
+  "should_exit_on_success": true,
   "should_maximize": false,
   "compact_mode": false,
   "suffix": ".gd",
-  "tests": [
-
-  ],
+  "tests": [],
   "unit_test_name": "",
   "gut_on_top": true
 }

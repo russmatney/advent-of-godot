@@ -29,6 +29,10 @@ _global_script_class_icons={
 config/name="advent-of-godot"
 config/icon="res://icon.png"
 
+[autoload]
+
+Util="*res://src/Util.gd"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/gut/plugin.cfg" )
