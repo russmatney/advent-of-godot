@@ -19,21 +19,21 @@ func test_strategy_guide_parsing():
 func test_part_1_example():
 	var guide = rps.strategy_guide("example.txt")
 	var score = rps.total_score(guide)
-	assert(score, 15)
+	assert_eq(score, 15)
 
 func test_part_1_input():
-	var guide = rps.strategy_guide("example.txt")
+	var guide = rps.strategy_guide()
 	var score = rps.total_score(guide)
-	assert(score, 13268)
+	assert_eq(score, 13268)
 
 func test_part_2_example():
 	var guide = rps.strategy_guide("example.txt")
 	var updated_guide = rps.update_guide(guide)
 	var score = rps.total_score(updated_guide)
-	assert(score, 12)
+	assert_eq(score, 12)
 
 func test_part_2_input():
-	var guide = rps.strategy_guide("example.txt")
+	var guide = rps.strategy_guide()
 	var updated_guide = rps.update_guide(guide)
 	var score = rps.total_score(updated_guide)
-	assert(score, 15508)
+	assert_eq(score, 15508)

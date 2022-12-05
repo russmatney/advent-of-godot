@@ -1,8 +1,8 @@
 #+title: Advent Of Godot
 
-[[https://adventofcode.com/][Advent of Code]] solutions, implemented in [[https://godotengine.org/][Godot]].
+[[https://adventofcode.com/][Advent of Code]] solutions, implemented in [[https://godotengine.org/][Godot]] (gdscript).
 
 * 2022
-** Day 1
-** Day 2
+** [[file:src/2022/01/CalorieCounting.gd][Day 1]]
+** [[file:src/2022/02/RockPaperScissors.gd][Day 2]]
 ** Day 3
