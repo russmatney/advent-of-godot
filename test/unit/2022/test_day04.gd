@@ -23,3 +23,9 @@ func test_count_fully_contained_example():
 
 func test_count_fully_contained_input():
 	assert_eq(515, cc.count_fully_contained_assignments("input.txt"))
+
+func test_count_partially_contained_example():
+	assert_eq(4, cc.count_partially_contained_assignments("example.txt"))
+
+func test_count_partially_contained_input():
+	assert_eq(883, cc.count_partially_contained_assignments("input.txt"))
