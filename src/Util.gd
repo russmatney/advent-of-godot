@@ -16,3 +16,8 @@ func file_content(fpath):
 	f.close()
 
 	return content
+
+func file_lines(fpath):
+	var content = file_content(fpath)
+
+	return content.split("\n", false)

@@ -80,13 +80,9 @@ func _ready():
 	if Engine.editor_hint:
 		request_ready()
 
-	var strat_guide = strategy_guide("example.txt")
-	print("\nstrat_guide")
-	print(strat_guide)
+	# var strat_guide = strategy_guide("example.txt")
 
-	var updated_guide = update_guide(strat_guide)
-	print("\nupdated_guide")
-	print(updated_guide)
+	# var updated_guide = update_guide(strat_guide)
 
-	print("\nscore", total_score(strat_guide))
-	print("\npart 2 score", total_score(updated_guide))
+	# print("\nscore", total_score(strat_guide))
+	# print("\npart 2 score", total_score(updated_guide))
