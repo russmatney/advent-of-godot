@@ -17,3 +17,9 @@ func test_parse_assignments():
 		[6, 6, 4, 6],
 		[2, 6, 4, 8]
 		])
+
+func test_count_fully_contained_example():
+	assert_eq(2, cc.count_fully_contained_assignments("example.txt"))
+
+func test_count_fully_contained_input():
+	assert_eq(515, cc.count_fully_contained_assignments("input.txt"))
