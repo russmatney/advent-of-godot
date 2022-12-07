@@ -78,12 +78,12 @@ func _ready():
 	if Engine.editor_hint:
 		request_ready()
 
-	var rucksacks = parse_rucksacks("example.txt")
-	var total = total_rucksack_priority(rucksacks)
-	print("\npart 1")
-	print(total)
+	# var rucksacks = parse_rucksacks("example.txt")
+	# var total = total_rucksack_priority(rucksacks)
+	# print("\npart 1")
+	# print(total)
 
-	var lines = parse_lines("example.txt")
-	var total2 = total_rucksack_group_priority(lines)
-	print("\npart 2")
-	print(total2)
+	# var lines = parse_lines("example.txt")
+	# var total2 = total_rucksack_group_priority(lines)
+	# print("\npart 2")
+	# print(total2)

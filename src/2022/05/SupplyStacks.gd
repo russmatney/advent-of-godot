@@ -51,7 +51,7 @@ func move_9000(f="input.txt"):
 		var from = move["from"]
 		var to = move["to"]
 
-		for c in range(ct):
+		for _i in range(ct):
 			var crate = crates[from].pop_front()
 			crates[to].push_front(crate)
 
@@ -68,7 +68,7 @@ func move_9001(f="input.txt"):
 		var to = move["to"]
 
 		var cs = []
-		for c in range(ct):
+		for _i in range(ct):
 			cs.push_front(crates[from].pop_front())
 
 		for c in cs:

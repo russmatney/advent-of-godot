@@ -43,7 +43,7 @@ func _ready():
 	if Engine.editor_hint:
 		request_ready()
 
-	var invs = elf_inventories()
+	# var invs = elf_inventories()
 	# print(invs)
-	var largest = largest_inventory(invs, 3)
-	print(largest)
+	# var largest = largest_inventory(invs, 3)
+	# print(largest)
