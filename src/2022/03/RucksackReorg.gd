@@ -1,26 +1,6 @@
 tool
 extends Node2D
 
-# TODO move to util
-func partition(arr, n):
-	var groups = []
-	var last_group = []
-	for i in range(len(arr)):
-		if i % n == 0 and last_group:
-			groups.append(last_group.duplicate())
-			last_group = []
-		last_group.append(arr[i])
-	if last_group:
-		groups.append(last_group)
-
-	return groups
-
-func str_to_set(s):
-	var dict = {}
-	for c in s:
-		dict[c] = true
-	return dict
-
 func first_overlapping_key(d1, d2, d3=null):
 	for k in d1.keys():
 		if d2.has(k):
@@ -56,8 +36,8 @@ func parse_rucksacks(fname = "input.txt"):
 	return sacks
 
 func set_common_item(rucksack):
-	var comp1_set = str_to_set(rucksack["comp1"])
-	var comp2_set = str_to_set(rucksack["comp2"])
+	var comp1_set = Util.str_to_dict(rucksack["comp1"])
+	var comp2_set = Util.str_to_dict(rucksack["comp2"])
 	var common = first_overlapping_key(comp1_set, comp2_set)
 
 	rucksack["common"] = common
@@ -78,13 +58,13 @@ func total_rucksack_priority(rucksacks):
 func common_group_item(lines):
 	var ds = []
 	for l in lines:
-		ds.append(str_to_set(l))
+		ds.append(Util.str_to_dict(l))
 
 	return callv("first_overlapping_key", ds)
 
 func total_rucksack_group_priority(lines):
 	# move to groups of 3
-	var groups = partition(lines, 3)
+	var groups = Util.partition(lines, 3)
 
 	# find common item among each group
 	var total = 0

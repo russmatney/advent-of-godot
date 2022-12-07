@@ -1,7 +1,6 @@
 tool
 extends Node
 
-
 func file_content(fpath):
 	var f = File.new()
 
@@ -21,3 +20,22 @@ func file_lines(fpath):
 	var content = file_content(fpath)
 
 	return content.split("\n", false)
+
+func partition(arr, n):
+	var groups = []
+	var last_group = []
+	for i in range(len(arr)):
+		if i % n == 0 and last_group:
+			groups.append(last_group.duplicate())
+			last_group = []
+		last_group.append(arr[i])
+	if last_group:
+		groups.append(last_group)
+
+	return groups
+
+func str_to_dict(s):
+	var dict = {}
+	for c in s:
+		dict[c] = true
+	return dict

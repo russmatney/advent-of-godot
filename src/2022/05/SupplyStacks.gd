@@ -88,14 +88,14 @@ func _ready():
 	if Engine.editor_hint:
 		request_ready()
 
-	print("9000", move_9000("example.txt"))
-	print("9000", top_crates(move_9000("example.txt")))
+	# print("9000", move_9000("example.txt"))
+	# print("9000", top_crates(move_9000("example.txt")))
 
-	print("9000", move_9000())
-	print("9000", top_crates(move_9000()))
+	# print("9000", move_9000())
+	# print("9000", top_crates(move_9000()))
 
-	print("9001", move_9001("example.txt"))
-	print("9001", top_crates(move_9001("example.txt")))
+	# print("9001", move_9001("example.txt"))
+	# print("9001", top_crates(move_9001("example.txt")))
 
-	print("9001", move_9001())
-	print("9001", top_crates(move_9001()))
+	# print("9001", move_9001())
+	# print("9001", top_crates(move_9001()))
