@@ -82,8 +82,30 @@ func parse_dir_sizes(f="input.txt"):
 
 	return dirs_state
 
+func sum_dirs_under_size(dirs, n=100000):
+	var sum = 0
+	for dir_path in dirs.keys():
+		var d = dirs[dir_path]
+		if d["dir_size"] <= n:
+			sum += d["dir_size"]
+	return sum
+
+func smallest_dir_to_delete(dirs, needed=30000000, total=70000000):
+	var root_size = dirs["/"]["dir_size"]
+	var unused_space = total - root_size
+	var required_deletion = needed - unused_space
+
+	var smallest = root_size
+	for dir_path in dirs:
+		var d = dirs[dir_path]
+		var s = d["dir_size"]
+		if s >= required_deletion and s < smallest:
+			smallest = s
+
+	return smallest
+
 func _ready():
 	if Engine.editor_hint:
 		request_ready()
 
-	print(parse_dir_sizes("example.txt"))
+	# print(parse_dir_sizes("example.txt"))
