@@ -18,6 +18,8 @@ func _ready():
 func update_window_size():
 	window_size = OS.window_size
 
+# TODO how often should we check for more follows?
+# maybe trigger via signal/singleton when adding new nodes
 func update_follows():
 	if follow_group:
 		to_follow = get_tree().get_nodes_in_group(follow_group)

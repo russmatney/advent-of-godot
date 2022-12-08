@@ -14,7 +14,7 @@ func _ready():
 
 		# use the example data in the editor
 		data_fname = "example.txt"
-	# data_fname = "example.txt"
+	data_fname = "example.txt"
 
 	parsed_inventories = $CalorieCounting.elf_inventories(data_fname)
 
@@ -22,7 +22,7 @@ func _ready():
 
 ######################################################
 
-func random_x_offset(n=100):
+func random_offset(n=10):
 	return (randi() % n) - int(n / 2)
 
 func spawn_elves(inventories):
@@ -30,7 +30,8 @@ func spawn_elves(inventories):
 		var elf = create_elf(inv)
 		elves.append(elf)
 
-		elf.position.x += random_x_offset()
+		elf.position.x += random_offset(100)
+		elf.position.y += random_offset(10)
 
 		$ElfContainer.add_child(elf)
 

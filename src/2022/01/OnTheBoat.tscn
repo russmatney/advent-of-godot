@@ -10,10 +10,10 @@ script = ExtResource( 2 )
 [node name="CalorieCounting" parent="." instance=ExtResource( 1 )]
 
 [node name="ElfContainer" type="Node2D" parent="."]
-position = Vector2( 536, 279 )
+position = Vector2( 512, 299 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 501, 263 )
+position = Vector2( 512, 300 )
 current = true
 script = ExtResource( 3 )
 follow_group = "elf"
