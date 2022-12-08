@@ -18,7 +18,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31, 31 )
 
-[node name="Elf" type="RigidBody2D"]
+[node name="Elf" type="RigidBody2D" groups=["elf"]]
 mode = 2
 gravity_scale = 0.0
 can_sleep = false
