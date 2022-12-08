@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/2022/01/Elf.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/2022/01/ElfGym.gd" type="Script" id=2]
+
+[node name="ElfGym" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Elf" parent="." instance=ExtResource( 1 )]
+position = Vector2( 158, 174 )

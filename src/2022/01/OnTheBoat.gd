@@ -14,6 +14,7 @@ func _ready():
 
 		# use the example data in the editor
 		data_fname = "example.txt"
+	data_fname = "example.txt"
 
 	parsed_inventories = $CalorieCounting.elf_inventories(data_fname)
 
