@@ -22,7 +22,6 @@ extents = Vector2( 31, 31 )
 mode = 2
 gravity_scale = 0.0
 can_sleep = false
-applied_force = Vector2( 0.2, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

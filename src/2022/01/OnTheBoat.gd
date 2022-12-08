@@ -22,10 +22,16 @@ func _ready():
 
 ######################################################
 
+func random_x_offset(n=100):
+	return (randi() % n) - int(n / 2)
+
 func spawn_elves(inventories):
 	for inv in inventories:
 		var elf = create_elf(inv)
 		elves.append(elf)
+
+		elf.position.x += random_x_offset()
+
 		$ElfContainer.add_child(elf)
 
 ######################################################

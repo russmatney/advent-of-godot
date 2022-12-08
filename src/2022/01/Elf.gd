@@ -13,13 +13,29 @@ func assign_inventory(inv):
 
 	add_items()
 
-func add_items():
-	for item in inventory:
-		var it = create_item(item)
+var y_offset = 0
 
+func add_item(cal_count, color=null):
+	var it = create_item(cal_count)
+
+	y_offset -= 16
+	it.position.y += y_offset
+
+	if color:
+		it.update_background_color(color)
+
+	$ItemContainer.add_child(it)
+
+var total_green = Color(0.058824, 0.607843, 0.196078)
+
+func add_items():
+	var total_cals = 0
+	for cals in inventory:
 		# TODO add delay
-		# TODO increase y position per item
-		$ItemContainer.add_child(it)
+		add_item(cals)
+		total_cals += cals
+
+	add_item(total_cals, total_green)
 
 var item_scene = preload("res://src/2022/01/Item.tscn")
 
