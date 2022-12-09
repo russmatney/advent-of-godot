@@ -61,5 +61,16 @@ bbcode_text = "< dir >"
 text = "< dir >"
 scroll_active = false
 
+[node name="NeighborsLabel" type="RichTextLabel" parent="."]
+margin_left = -40.0
+margin_top = -53.0
+margin_right = 40.0
+margin_bottom = -36.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "< dir >"
+text = "< dir >"
+scroll_active = false
+
 [connection signal="area_entered" from="DetectBox" to="." method="_on_DetectBox_area_entered"]
 [connection signal="area_exited" from="DetectBox" to="." method="_on_DetectBox_area_exited"]

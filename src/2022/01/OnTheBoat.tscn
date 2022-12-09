@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/2022/01/CalorieCounting.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/2022/01/OnTheBoat.gd" type="Script" id=2]
 [ext_resource path="res://src/2022/01/Camera2D.gd" type="Script" id=3]
 [ext_resource path="res://src/2022/01/Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/2022/01/HUD.tscn" type="PackedScene" id=5]
 
 [node name="OnTheBoat" type="Node2D"]
 script = ExtResource( 2 )
@@ -77,5 +78,8 @@ position = Vector2( 512, 299 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512, 300 )
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 1.5, 1.5 )
 script = ExtResource( 3 )
+follow_group = "elf"
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]

@@ -13,6 +13,7 @@ onready var anim = $AnimatedSprite
 onready var item_container = $ItemContainer
 onready var hitbox = $HitBox
 onready var dir_label = $DirLabel
+onready var neighbors_label = $NeighborsLabel
 
 var total_green = Color(0.058824, 0.607843, 0.196078)
 
@@ -83,9 +84,13 @@ func _physics_process(_delta):
 		DIR.left:
 			velocity.x += -1 * accel
 			velocity.x = clamp(velocity.x, -1 * min_speed, -1 * max_speed)
+			# velocity.y += -1 * accel
+			# velocity.y = clamp(velocity.y, -1 * min_speed, -1 * max_speed)
 		DIR.right:
 			velocity.x += accel
 			velocity.x = clamp(velocity.x, min_speed, max_speed)
+			# velocity.y += accel
+			# velocity.y = clamp(velocity.y, min_speed, max_speed)
 		DIR.stay:
 			# TODO slow down first?
 			velocity = Vector2.ZERO
@@ -100,19 +105,22 @@ func _physics_process(_delta):
 func update_sort_direction():
 	var with_fewer_cals = 0
 	var with_more_cals = 0
-	for n in neighbors:
+
+	# TODO why not just get all the elves from the current scene?
+
+	for n in neighbors.slice(0, 1):
 
 		# TODO we only care if the mores are right of us or the fewers are left of us
 
-		if n.global_position.x > global_position.x and n.total_calories > total_calories:
+		if n.global_position.x < global_position.x and n.total_calories > total_calories:
 			with_more_cals += 1
-		elif n.global_position.x < global_position.x and n.total_calories < total_calories:
+		elif n.global_position.x > global_position.x and n.total_calories < total_calories:
 			with_fewer_cals += 1
 
 	if with_more_cals and with_more_cals > with_fewer_cals:
-		move_dir = DIR.right
-	elif with_fewer_cals and with_more_cals < with_fewer_cals:
 		move_dir = DIR.left
+	elif with_fewer_cals and with_more_cals < with_fewer_cals:
+		move_dir = DIR.right
 	else:
 		move_dir = DIR.stay
 
@@ -138,6 +146,9 @@ func update_ui():
 		DIR.stay: label = "| stay |"
 
 	dir_label.bbcode_text = str("[center]", label)
+
+	neighbors_label.bbcode_text = str("[center]", neighbors.size())
+
 
 
 ################################################################
