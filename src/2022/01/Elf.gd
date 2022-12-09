@@ -1,20 +1,29 @@
 tool
-extends RigidBody2D
+extends KinematicBody2D
 
 var inventory = []
 var items = []
 var total_calories = 0
-
 var original_pos
 
 enum DIR {stay, left, right}
 var move_dir = DIR.stay
+
+onready var anim = $AnimatedSprite
+onready var item_container = $ItemContainer
+onready var hitbox = $HitBox
+onready var dir_label = $DirLabel
+
+var total_green = Color(0.058824, 0.607843, 0.196078)
 
 func _ready():
 	if Engine.editor_hint:
 		assign_inventory([1000, 2000])
 
 	original_pos = global_position
+
+##########################################################
+# creating the inventory
 
 func assign_inventory(inv):
 	inventory = inv
@@ -34,13 +43,11 @@ func add_item(cal_count, color=null):
 
 	$ItemContainer.add_child(it)
 
-var total_green = Color(0.058824, 0.607843, 0.196078)
-
 func add_items():
 	total_calories = 0
 	for cals in inventory:
 		# TODO add delay
-		add_item(cals)
+		# add_item(cals)
 		total_calories += cals
 
 	add_item(total_calories, total_green)
@@ -55,16 +62,40 @@ func create_item(calories):
 ################################################################
 
 func _process(_delta):
+	pass
 
 	# move towards original x position
-	if global_position.y < original_pos.y:
-		gravity_scale = 0.9
-	elif global_position.y > original_pos.y:
-		gravity_scale = -0.9
+	# if global_position.y < original_pos.y:
+	# 	gravity_scale = 0.9
+	# elif global_position.y > original_pos.y:
+	# 	gravity_scale = -0.9
+
+var velocity = Vector2.ZERO
+
+var accel = 5000
+var min_speed = 50
+var max_speed = 200
+
+func _physics_process(_delta):
+
+	# move left or right based on size relative to neighbors
+	match move_dir:
+		DIR.left:
+			velocity.x += -1 * accel
+			velocity.x = clamp(velocity.x, -1 * min_speed, -1 * max_speed)
+		DIR.right:
+			velocity.x += accel
+			velocity.x = clamp(velocity.x, min_speed, max_speed)
+		DIR.stay:
+			# TODO slow down first?
+			velocity = Vector2.ZERO
+
+	velocity = move_and_slide(velocity, Vector2.UP)
 
 ################################################################
+# selecting and moving in a direction
 
-var neighbors = []
+# TODO maybe refactor away from impulses and instead do a 'swap' with a given neighbor?
 
 func update_sort_direction():
 	var with_fewer_cals = 0
@@ -85,25 +116,37 @@ func update_sort_direction():
 	else:
 		move_dir = DIR.stay
 
-	apply_movement()
+	# apply_movement()
+	update_color()
+	update_ui()
 
-var speed = 50
-
-func apply_movement():
-	# move left or right based on size relative to neighbors
-	var move_vec
+func update_color():
+	var new_color
 	match move_dir:
-		DIR.left: move_vec = Vector2(-1, 0) * speed
-		DIR.right: move_vec = Vector2(1, 0) * speed
-		# reverse the current movement
-		DIR.stay: move_vec = linear_velocity * -1
+		DIR.right: new_color = Color.crimson
+		DIR.left: new_color = Color.aliceblue
+		DIR.stay: new_color = Color.goldenrod
 
-	if move_vec:
-		apply_impulse(Vector2.ZERO, move_vec)
+	if new_color:
+		anim.modulate = new_color
 
+func update_ui():
+	var label
+	match move_dir:
+		DIR.right: label = "> right >"
+		DIR.left: label = "< left <"
+		DIR.stay: label = "| stay |"
+
+	dir_label.bbcode_text = str("[center]", label)
+
+
+################################################################
+# detecting neighbors
+
+var neighbors = []
 
 func _on_DetectBox_area_entered(area:Area2D):
-	if area == $HitBox:
+	if area == hitbox:
 		return
 
 	if area.name == "HitBox":
@@ -113,7 +156,7 @@ func _on_DetectBox_area_entered(area:Area2D):
 
 
 func _on_DetectBox_area_exited(area:Area2D):
-	if area == $HitBox:
+	if area == hitbox:
 		return
 
 	if area.name == "HitBox":

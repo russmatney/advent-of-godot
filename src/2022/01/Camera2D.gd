@@ -3,7 +3,7 @@ extends Camera2D
 export (String) var follow_group
 
 var to_follow = []
-var zoom_offset = Vector2(100, 100)
+var zoom_offset = Vector2(400, 400)
 var window_size = OS.window_size
 
 func _ready():
