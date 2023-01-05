@@ -15,13 +15,13 @@ anchor_bottom = 1.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 1024.0
-margin_bottom = 17.0
+margin_bottom = 65.0
 theme = ExtResource( 1 )
 text = "Advent Of Godot"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 21.0
+margin_top = 69.0
 margin_right = 1024.0
 margin_bottom = 600.0
 size_flags_vertical = 3
@@ -29,42 +29,42 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 510.0
-margin_bottom = 579.0
+margin_bottom = 531.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="DaySelector" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 251.0
+margin_top = 179.0
 margin_right = 510.0
-margin_bottom = 274.0
+margin_bottom = 234.0
 theme = ExtResource( 2 )
 text = "Load Day"
 
 [node name="PartOne" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 278.0
+margin_top = 238.0
 margin_right = 510.0
-margin_bottom = 301.0
+margin_bottom = 293.0
 theme = ExtResource( 2 )
 text = "Run Part One"
 
 [node name="PartTwo" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 305.0
+margin_top = 297.0
 margin_right = 510.0
-margin_bottom = 328.0
+margin_bottom = 352.0
 theme = ExtResource( 2 )
 text = "Run Part Two"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 514.0
 margin_right = 1024.0
-margin_bottom = 579.0
+margin_bottom = 531.0
 size_flags_horizontal = 3
 
 [node name="DayLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
-margin_top = 86.0
+margin_top = 54.0
 margin_right = 510.0
-margin_bottom = 103.0
+margin_bottom = 119.0
 size_flags_vertical = 6
 theme = ExtResource( 1 )
 text = "No Day Selected"
@@ -73,7 +73,7 @@ valign = 1
 
 [node name="PartOneResult" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
-margin_top = 279.0
+margin_top = 231.0
 margin_right = 510.0
 margin_bottom = 296.0
 size_flags_vertical = 6
@@ -84,9 +84,9 @@ valign = 1
 
 [node name="PartTwoResult" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
-margin_top = 472.0
+margin_top = 408.0
 margin_right = 510.0
-margin_bottom = 489.0
+margin_bottom = 473.0
 size_flags_vertical = 6
 theme = ExtResource( 1 )
 text = "Part Two Result"
@@ -95,9 +95,9 @@ valign = 1
 
 [node name="DayContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
-margin_top = 579.0
+margin_top = 531.0
 margin_right = 510.0
-margin_bottom = 579.0
+margin_bottom = 531.0
 
 [node name="DayLoader" type="PopupMenu" parent="."]
 margin_right = 20.0
