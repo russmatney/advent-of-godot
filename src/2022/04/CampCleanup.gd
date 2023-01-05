@@ -56,3 +56,9 @@ func _ready():
 
 	# print("count (pt 2): ", count_partially_contained_assignments("example.txt"))
 	# print("count (pt 2): ", count_partially_contained_assignments("input.txt"))
+
+func run_part_one():
+	return count_fully_contained_assignments("input.txt")
+
+func run_part_two():
+	return count_partially_contained_assignments("input.txt")

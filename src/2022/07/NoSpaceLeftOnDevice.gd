@@ -109,3 +109,13 @@ func _ready():
 		request_ready()
 
 	# print(parse_dir_sizes("example.txt"))
+
+func run_part_one():
+	var dirs = parse_dir_sizes()
+	var result = sum_dirs_under_size(dirs)
+	return result
+
+func run_part_two():
+	var dirs = parse_dir_sizes()
+	var result = smallest_dir_to_delete(dirs, 30000000)
+	return result

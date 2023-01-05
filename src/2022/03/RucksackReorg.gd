@@ -87,3 +87,13 @@ func _ready():
 	# var total2 = total_rucksack_group_priority(lines)
 	# print("\npart 2")
 	# print(total2)
+
+func run_part_one():
+	var rucksacks = parse_rucksacks()
+	var total = total_rucksack_priority(rucksacks)
+	return total
+
+func run_part_two():
+	var lines = parse_lines()
+	var total = total_rucksack_group_priority(lines)
+	return total

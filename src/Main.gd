@@ -43,6 +43,9 @@ func _on_DayLoader_id_pressed(id:int):
 
 	day_container.add_child(current)
 
+	part_one_result.text = ""
+	part_two_result.text = ""
+
 
 func _on_PartOne_pressed():
 	if not current:

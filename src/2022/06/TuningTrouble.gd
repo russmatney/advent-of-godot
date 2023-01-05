@@ -29,3 +29,9 @@ func _ready():
 
 	# print("ex2: ", first_marker(sig("example.txt"), 14))
 	# print("in2: ", first_marker(sig("input.txt"), 14))
+
+func run_part_one():
+	return first_marker(sig("input.txt"))
+
+func run_part_two():
+	return first_marker(sig("input.txt"), 14)

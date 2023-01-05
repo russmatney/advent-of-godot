@@ -99,3 +99,9 @@ func _ready():
 
 	# print("9001", move_9001())
 	# print("9001", top_crates(move_9001()))
+
+func run_part_one():
+	return top_crates(move_9000())
+
+func run_part_two():
+	return top_crates(move_9001())

@@ -86,3 +86,14 @@ func _ready():
 
 	# print("\nscore", total_score(strat_guide))
 	# print("\npart 2 score", total_score(updated_guide))
+
+func run_part_one():
+	var guide = strategy_guide()
+	var score = total_score(guide)
+	return score
+
+func run_part_two():
+	var guide = strategy_guide()
+	var updated_guide = update_guide(guide)
+	var score = total_score(updated_guide)
+	return score
