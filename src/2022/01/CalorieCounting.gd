@@ -47,3 +47,9 @@ func _ready():
 	# print(invs)
 	# var largest = largest_inventory(invs, 3)
 	# print(largest)
+
+func run_part_one():
+	return largest_inventory(elf_inventories())
+
+func run_part_two():
+	return largest_inventory(elf_inventories(), 3)
