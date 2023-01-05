@@ -3,3 +3,5 @@
 .clj-kondo/.cache
 .session
 .DS_Store
+
+dist/
