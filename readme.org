@@ -11,3 +11,8 @@
 ** [[file:src/2022/06/TuningTrouble.gd][Day 6]]
 ** [[file:src/2022/07/NoSpaceLeftOnDevice.gd][Day 7]]: No Space Left On Device
 ** [[file:src/2022/08/TreetopTreeHouse.gd][Day 8]]: Treetop Tree House
+
+* Other AOCs
+- [[https://github.com/russmatney/advent-of-code][advent-of-code (clojure)]]
+- [[https://github.com/russmatney/advent-of-code-zig][advent-of-code-zig]]
+- [[https://github.com/russmatney/advent-of-code-gerbil][advent-of-code-gerbil]]
