@@ -56,6 +56,26 @@ static func calc_part_one(reports):
 	return result
 
 # part 2
-static func calc_part_two(data):
+static func permute_report(report):
+	var reps = []
+	for i in range(len(report)):
+		var dupe = report.duplicate()
+		dupe.remove_at(i)
+		reps.append(dupe)
+
+	return reps
+
+static func calc_part_two(reports):
 	var result = 0
+	for report in reports:
+		if is_safe(report):
+			result += 1
+		else:
+			var permuted_reports = permute_report(report)
+			for rep in permuted_reports:
+				if is_safe(rep):
+					result += 1
+					break
+
+
 	return result
