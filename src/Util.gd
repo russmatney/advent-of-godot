@@ -2,20 +2,14 @@
 extends Node
 
 func file_content(fpath):
-	pass
-	# var f = File.new()
+	if not FileAccess.file_exists(fpath):
+		Log.warn("file does not exist", fpath)
+		return
 
-	# if not f.file_exists(fpath):
-	# 	print("[WARN] file does not exist: ", fpath)
-	# 	return
-	# # else:
-	# # 	print("[OK] file exists: ", fpath)
+	var file = FileAccess.open(fpath, FileAccess.READ)
+	var content = file.get_as_text()
 
-	# f.open(fpath, File.READ)
-	# var content = f.get_as_text()
-	# f.close()
-
-	# return content
+	return content
 
 func file_lines(fpath):
 	var content = file_content(fpath)
