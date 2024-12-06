@@ -6,28 +6,13 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Reference",
-"class": "GutHookScript",
-"language": "GDScript",
-"path": "res://addons/gut/hook_script.gd"
-}, {
-"base": "Node",
-"class": "GutTest",
-"language": "GDScript",
-"path": "res://addons/gut/test.gd"
-} ]
-_global_script_class_icons={
-"GutHookScript": "",
-"GutTest": ""
-}
+config_version=5
 
 [application]
 
 config/name="advent-of-godot"
 run/main_scene="res://src/Main.tscn"
+config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 
 [autoload]
@@ -36,7 +21,7 @@ Util="*res://src/Util.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/google_fonts/plugin.cfg", "res://addons/gut/plugin.cfg" )
+enabled=PackedStringArray("res://addons/google_fonts/plugin.cfg", "res://addons/gut/plugin.cfg")
 
 [gui]
 
