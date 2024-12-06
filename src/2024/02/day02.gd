@@ -12,10 +12,47 @@ static func input(fname):
 
 	return reports
 
-
 # part 1
+static func is_safe(report):
+	# all increasing or decreasing
+	# at least different by 1
+	# at most different by 3
+
+	var is_increasing = false
+	if report[0] < report[1]:
+		is_increasing = true
+	elif report[0] == report[1]:
+		return false
+
+	var last_val = null
+	for val in report:
+		if last_val == null:
+			last_val = val
+			continue
+
+		var diff = val - last_val
+
+		if is_increasing:
+			if diff < 0:
+				return false
+		else:
+			if diff > 0:
+				return false
+
+		if diff == 0 or abs(diff) > 3:
+			return false
+
+		last_val = val
+
+	return true
+
 static func calc_part_one(reports):
 	var result = 0
+
+	for report in reports:
+		if is_safe(report):
+			result += 1
+
 	return result
 
 # part 2
