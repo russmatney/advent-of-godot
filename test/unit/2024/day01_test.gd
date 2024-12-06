@@ -14,3 +14,13 @@ func test_part_one_input():
 	var data = AOC2024Day01.input("input")
 	var result = AOC2024Day01.calc_part_one(data)
 	assert_that(result).is_equal(1666427)
+
+func test_part_two_example():
+	var data = AOC2024Day01.input("example")
+	var result = AOC2024Day01.calc_part_two(data)
+	assert_that(result).is_equal(31)
+
+func test_part_two_input():
+	var data = AOC2024Day01.input("input")
+	var result = AOC2024Day01.calc_part_two(data)
+	assert_that(result).is_equal(24316233)

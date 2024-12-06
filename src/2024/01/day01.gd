@@ -26,3 +26,23 @@ static func calc_part_one(data):
 		dist += abs(left[i] - right[i])
 
 	return dist
+
+static func calc_part_two(data):
+	var left = data.left
+	var right = data.right
+
+	# calc frequencies for right
+	var frequencies = {}
+	for val in right:
+		# already in dictionary?
+		if not val in frequencies:
+			frequencies[val] = 0
+		# increment the value
+		frequencies[val] += 1
+
+	# loop over left calcing similarity score
+	var score = 0
+	for val in left:
+		score += val * frequencies.get(val, 0)
+
+	return score
