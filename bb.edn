@@ -19,6 +19,10 @@
                  ;; {:extra-env {"GODOT_BIN" godot-bin}}
                  (str "./addons/gdUnit4/runtest.sh -c -a " arg)))
 
+  plug
+  (shell-and-log
+    (str "godot --no-window -s plug.gd " (string/join " " *command-line-args*)))
+
   download-input
   (let [args *command-line-args*]
     (if (count args)
