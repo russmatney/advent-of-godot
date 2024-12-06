@@ -15,13 +15,16 @@ run/main_scene="res://src/Main.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 
-[autoload]
-
-Util="*res://src/Util.gd"
-
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/google_fonts/plugin.cfg", "res://addons/gut/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
+[gdunit4]
+
+settings/common/update_notification_enabled=false
+settings/test/test_discovery=true
+report/godot/push_error=true
+ui/toolbar/run_overall=true
 
 [gui]
 

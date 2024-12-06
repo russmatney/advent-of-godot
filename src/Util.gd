@@ -1,7 +1,8 @@
 @tool
 extends Node
+class_name Util
 
-func file_content(fpath):
+static func file_content(fpath):
 	if not FileAccess.file_exists(fpath):
 		Log.warn("file does not exist", fpath)
 		return
@@ -11,12 +12,12 @@ func file_content(fpath):
 
 	return content
 
-func file_lines(fpath):
+static func file_lines(fpath):
 	var content = file_content(fpath)
 
 	return content.split("\n", false)
 
-func partition(arr, n):
+static func partition(arr, n):
 	var groups = []
 	var last_group = []
 	for i in range(len(arr)):
@@ -29,7 +30,7 @@ func partition(arr, n):
 
 	return groups
 
-func str_to_dict(s):
+static func str_to_dict(s):
 	var dict = {}
 	for c in s:
 		dict[c] = true
