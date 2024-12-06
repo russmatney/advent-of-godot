@@ -1,13 +1,23 @@
-{:paths ["src"]
+{:paths ["bb"]
  :tasks
- {:requires ([clojure.string :as string]
-             [tasks :as tasks])
+ {:requires ([clojure.string :as string])
+  :init
+  (do
+    (defn shell-and-log
+      ([x] (shell-and-log {} x))
+      ([opts x]
+       (println x)
+       (when (seq opts) (println opts))
+       (shell opts x))))
 
-  tests
-  (->>
-    (string/join " " *command-line-args*)
-    (str "godot --no-window --debug-collisions --path $PWD -d -s addons/gut/gut_cmdln.gd")
-    shell)
+  test (shell-and-log
+         ;; {:extra-env {"GODOT_BIN" godot-bin}}
+         (str "./addons/gdUnit4/runtest.sh -c -a test"))
+
+  test-match (let [arg (some-> *command-line-args* first)]
+               (shell-and-log
+                 ;; {:extra-env {"GODOT_BIN" godot-bin}}
+                 (str "./addons/gdUnit4/runtest.sh -c -a " arg)))
 
   download-input
   (let [args *command-line-args*]
